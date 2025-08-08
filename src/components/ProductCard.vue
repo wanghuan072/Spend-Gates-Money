@@ -145,7 +145,7 @@ const handleSell = () => {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px);
   border-radius: 20px;
-  padding: 24px;
+  padding: 20px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.3);
   transition: all 0.3s ease;
@@ -185,7 +185,7 @@ const handleSell = () => {
 .product-image {
   width: 100%;
   height: 160px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   border-radius: 16px;
   overflow: hidden;
   background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
@@ -219,7 +219,7 @@ const handleSell = () => {
 }
 
 .product-info {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .product-name {
@@ -227,8 +227,7 @@ const handleSell = () => {
   font-weight: 700;
   color: #2d3748;
   margin-bottom: 8px;
-  line-height: 1.4;
-  min-height: 50px;
+  line-height: 1;
   display: flex;
   align-items: center;
 }
@@ -240,7 +239,6 @@ const handleSell = () => {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  margin-bottom: 4px;
 }
 
 .product-controls {
@@ -328,11 +326,11 @@ const handleSell = () => {
 
 .quantity-input {
   width: 100%;
-  padding: 8px 16px;
+  padding: 5px 15px;
   background: rgba(160, 174, 192, 0.1);
   border: 2px solid rgba(160, 174, 192, 0.2);
   border-radius: 12px;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 800;
   text-align: center;
   color: #2d3748;
@@ -423,7 +421,7 @@ const handleSell = () => {
   }
 
   .product-price {
-    font-size: 16px;
+    font-size: 14px;
   }
 
   .product-controls {

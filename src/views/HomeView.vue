@@ -510,7 +510,7 @@ onUnmounted(() => {
 
 /* 商品列表区域 */
 .products-section {
-  padding: 40px 24px;
+  padding: 40px 0;
   background: rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(10px);
 }
@@ -522,14 +522,14 @@ onUnmounted(() => {
 
 .section-header {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 .section-title {
-  font-size: 36px;
+  font-size: 30px;
   font-weight: 800;
   color: #2d3748;
-  margin: 0 0 16px;
+  margin: 0 0 10px;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
