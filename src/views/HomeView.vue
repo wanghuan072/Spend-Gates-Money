@@ -68,12 +68,12 @@
           <h2 id="products-title" class="section-title">Available Items</h2>
           <p class="section-subtitle">Choose from luxury items to philanthropic causes</p>
         </div>
-        <div class="products-grid" role="grid" aria-label="Available products">
+        <div class="products-grid" role="list" aria-label="Available products">
           <ProductCard
             v-for="product in gameStore.currentProducts"
             :key="product.id"
             :product="product"
-            role="gridcell"
+            role="listitem"
           />
         </div>
       </div>

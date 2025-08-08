@@ -18,13 +18,13 @@
           <h2 id="games-title" class="section-title">All Games</h2>
           <p class="section-subtitle">Click on game cards to start playing</p>
         </div>
-        <div class="games-grid" role="grid" aria-label="Games list">
+        <div class="games-grid" role="list" aria-label="Games list">
           <GameCard
             v-for="game in gamesList"
             :key="game.id"
             :game="game"
             @play="navigateToGame"
-            role="gridcell"
+            role="listitem"
           />
         </div>
       </div>
