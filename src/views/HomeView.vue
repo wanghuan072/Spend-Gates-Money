@@ -49,11 +49,15 @@
               </span>
             </div>
           </div>
+          <button
+            class="view-receipt-btn"
+            @click="toggleReceipt"
+            aria-label="View purchase receipt"
+          >
+            <span class="receipt-icon" aria-hidden="true">📄</span>
+            View Receipt
+          </button>
         </div>
-        <button class="view-receipt-btn" @click="toggleReceipt" aria-label="View purchase receipt">
-          <span class="receipt-icon" aria-hidden="true">📄</span>
-          View Receipt
-        </button>
       </div>
     </section>
 
@@ -90,6 +94,16 @@
       <div class="receipt-overlay" @click="closeReceipt" aria-hidden="true"></div>
       <div class="receipt-modal">
         <ReceiptTable :show-receipt="gameStore.showReceipt" @close="closeReceipt" />
+      </div>
+    </section>
+
+    <!-- 角色详细信息 -->
+    <section
+      class="character-details-section"
+      v-if="gameStore.currentCharacter && gameStore.currentCharacter.detailsHtml"
+    >
+      <div class="character-details-container">
+        <div class="v-html-content" v-html="gameStore.currentCharacter.detailsHtml"></div>
       </div>
     </section>
 
@@ -227,6 +241,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+@import '../styles/v-html-content.css';
 .home-view {
   min-height: 100vh;
   background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
@@ -251,7 +266,7 @@ onUnmounted(() => {
 
 /* 游戏头部区域 */
 .game-header {
-  padding: 60px 24px 40px;
+  padding: 40px 0 30px 0;
   text-align: center;
   position: relative;
   z-index: 1;
@@ -308,9 +323,9 @@ onUnmounted(() => {
 }
 
 .game-title {
-  font-size: 48px;
+  font-size: 38px;
   font-weight: 900;
-  margin: 0 0 16px;
+  margin: 0 0 10px;
   background: linear-gradient(135deg, #667eea, #764ba2);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -365,7 +380,7 @@ onUnmounted(() => {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px);
   border-radius: 20px;
-  padding: 24px;
+  padding: 15px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.3);
   position: relative;
@@ -400,13 +415,12 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
-  margin-bottom: 1rem;
+  gap: 0;
 }
 
-.balance-info {
+/* .balance-info {
   flex: 1;
-}
+} */
 
 .balance-label {
   font-size: 14px;
@@ -418,7 +432,7 @@ onUnmounted(() => {
 }
 
 .balance-amount {
-  font-size: 32px;
+  font-size: 28px;
   font-weight: 900;
   color: #2d3748;
   background: linear-gradient(135deg, #667eea, #764ba2);
@@ -565,6 +579,24 @@ onUnmounted(() => {
   max-width: 900px;
 }
 
+/* 角色详细信息区域 */
+.character-details-section {
+  padding: 40px 24px;
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.character-details-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
 /* 重置游戏按钮 */
 .reset-section {
   padding: 40px 24px;
@@ -635,6 +667,14 @@ onUnmounted(() => {
     gap: 20px;
   }
 
+  .character-details-section {
+    padding: 30px 16px;
+  }
+
+  .character-details-container {
+    padding: 24px;
+  }
+
   .reset-section {
     padding: 30px 16px;
   }
@@ -675,9 +715,9 @@ onUnmounted(() => {
   }
 
   .balance-main {
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 10px;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0;
   }
 
   .balance-amount {
@@ -723,6 +763,14 @@ onUnmounted(() => {
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
     margin-top: 20px;
+  }
+
+  .character-details-section {
+    padding: 20px 10px;
+  }
+
+  .character-details-container {
+    padding: 16px;
   }
 
   .reset-section {

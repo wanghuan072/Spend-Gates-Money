@@ -393,5 +393,34 @@ export const billGatesData = {
     title: 'Spend Bill Gates Money - Interactive Wealth Simulation Game',
     description: "Experience what it's like to spend Bill Gates' fortune in this interactive simulation game. Buy luxury items,  and see how far $100+ billion can go.",
     keywords: 'bill gates money, wealth simulation, interactive game, billionaire spending, investment game'
-  }
+  },
+  
+  // 角色详细信息HTML内容
+  detailsHtml: `
+    <h2>Spend Bill Gates Money Overview</h2>
+    <p>The Spend Bill Gates Money is an online simulator game where you can experience the thrill of spending the massive fortune of Bill Gates. It gives you a virtual wallet with $130 billion (Bill Gates' estimated net worth), and you can spend it on various items, projects, and luxuries, just like a billionaire.</p>
+    
+    <p>This game will give you a fun and simple way to imagine what it's like to spend billions of dollars. I mean, most of us had never seen that kind of money in real life, right? But here, you can imagine yourself as a billionaire like Bill Gates. You can make big decisions without worrying about running out of cash.</p>
+    
+    <p>You can buy whatever you want, from private jets and yachts to small stuffs like a pizza or even donate to charity.</p>
+    
+    <p>We hope it gives you a laugh, maybe even teaches you something about money and how much things cost.</p>
+    
+    <h3>How Long Would it Take to Spend Bill Gates' Money?</h3>
+    <p>Bill Gates' current net worth is estimated at $130 billion. To give you an idea, let's break it down into spending habits:</p>
+    
+    <ul>
+      <li><strong>Spending $1 Million a Day:</strong> If you spent $1 million every single day, it would take you over 356 years to spend Bill Gates's $130 billion fortune. That's more than three lifetimes of spending millions daily!</li>
+      <li><strong>Spending $100,000 a Day:</strong> At $100,000 a day, it would take about 3,562 years to spend it all. That's longer than many ancient civilizations lasted!</li>
+      <li><strong>Spending $100,000 an Hour:</strong> Even if you spent $100,000 every single hour, it would take over 148 years to spend Bill Gates' money.</li>
+    </ul>
+    
+    <h3>Your Money vs Bill Gates' Money</h3>
+    <p>Let's compare the average person's income to Bill Gates' massive fortune:</p>
+    
+    <ul>
+      <li>If someone earning $65,000 a year saved every penny they made, with no expenses at all, it would take 2 million years to reach Bill Gates' wealth.</li>
+      <li>Even if you won a huge $1 million lottery prize every month, it would still take about 10,833 years to reach $130 billion. That's a very long time.</li>
+    </ul>
+  `
 } 

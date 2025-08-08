@@ -23,8 +23,22 @@
         Sell
       </button>
 
-      <div class="quantity-display" :id="`quantity-${product.id}`" aria-label="Current quantity">
-        <span class="quantity-value" role="text">{{ quantity }}</span>
+      <div
+        class="quantity-input-container"
+        :id="`quantity-${product.id}`"
+        aria-label="Quantity input"
+      >
+        <input
+          type="number"
+          class="quantity-input"
+          :value="quantity"
+          @input="handleQuantityChange"
+          @blur="handleQuantityBlur"
+          min="0"
+          step="1"
+          placeholder="0"
+          :aria-label="`Set quantity for ${product.name}`"
+        />
       </div>
 
       <button
@@ -58,6 +72,54 @@ const canAfford = computed(() => {
   const totalCost = props.product.price * 1 // 每次只购买1个
   return gameStore.balance >= totalCost
 })
+
+// 处理数量输入变化
+const handleQuantityChange = (event) => {
+  const inputValue = event.target.value
+  const newQuantity = parseInt(inputValue) || 0
+  const currentQuantity = quantity.value
+
+  // 如果输入值无效，直接返回
+  if (isNaN(newQuantity) || newQuantity < 0) {
+    return
+  }
+
+  const difference = newQuantity - currentQuantity
+
+  if (difference > 0) {
+    // 需要购买更多
+    const cost = props.product.price * difference
+    if (gameStore.balance >= cost) {
+      gameStore.buyProduct(props.product.id, difference)
+    } else {
+      // 余额不足，计算最大可购买数量
+      const maxAffordable = Math.floor(gameStore.balance / props.product.price)
+      const maxQuantity = currentQuantity + maxAffordable
+      event.target.value = maxQuantity
+      if (maxAffordable > 0) {
+        gameStore.buyProduct(props.product.id, maxAffordable)
+      }
+    }
+  } else if (difference < 0) {
+    // 需要出售
+    const sellQuantity = Math.abs(difference)
+    if (currentQuantity >= sellQuantity) {
+      gameStore.sellProduct(props.product.id, sellQuantity)
+    } else {
+      // 数量不足，出售所有可用数量
+      event.target.value = 0
+      gameStore.sellProduct(props.product.id, currentQuantity)
+    }
+  }
+}
+
+// 处理输入框失去焦点
+const handleQuantityBlur = (event) => {
+  const value = parseInt(event.target.value)
+  if (isNaN(value) || value < 0) {
+    event.target.value = quantity.value
+  }
+}
 
 const formatCurrency = (amount) => {
   return gameStore.formatCurrency(amount)
@@ -178,12 +240,12 @@ const handleSell = () => {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  margin-bottom: 0;
+  margin-bottom: 4px;
 }
 
 .product-controls {
   display: flex;
-  gap: 12px;
+  gap: 8px;
   align-items: center;
 }
 
@@ -192,14 +254,16 @@ const handleSell = () => {
   align-items: center;
   justify-content: center;
   gap: 6px;
-  padding: 12px 16px;
+  padding: 8px 12px;
   border: none;
   border-radius: 12px;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 12px;
   cursor: pointer;
   transition: all 0.3s ease;
-  min-width: 80px;
+  min-width: 60px;
+  height: 40px;
+  box-sizing: border-box;
   position: relative;
   overflow: hidden;
 }
@@ -255,32 +319,57 @@ const handleSell = () => {
   box-shadow: none;
 }
 
-.quantity-display {
+.quantity-input-container {
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 12px 16px;
+}
+
+.quantity-input {
+  width: 100%;
+  padding: 8px 16px;
   background: rgba(160, 174, 192, 0.1);
   border: 2px solid rgba(160, 174, 192, 0.2);
   border-radius: 12px;
-  font-size: 14px;
+  font-size: 20px;
+  font-weight: 800;
+  text-align: center;
+  color: #2d3748;
   transition: all 0.3s ease;
+  cursor: text;
+  height: 40px;
+  box-sizing: border-box;
 }
 
-.quantity-display:hover {
+.quantity-input:focus {
+  outline: none;
+  background: rgba(160, 174, 192, 0.15);
+  border-color: rgba(102, 126, 234, 0.5);
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  color: #2d3748;
+}
+
+.quantity-input:hover {
   background: rgba(160, 174, 192, 0.15);
   border-color: rgba(160, 174, 192, 0.3);
+  color: #2d3748;
 }
 
-.quantity-value {
-  color: #2d3748;
-  font-weight: 800;
-  font-size: 20px;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+/* 隐藏数字输入框的上下箭头 */
+.quantity-input::-webkit-outer-spin-button,
+.quantity-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.quantity-input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+.quantity-input::placeholder {
+  color: rgba(45, 55, 72, 0.5);
+  font-weight: 600;
 }
 
 /* 响应式设计 */
@@ -304,17 +393,16 @@ const handleSell = () => {
   }
 
   .control-btn {
-    padding: 10px 14px;
-    font-size: 13px;
-    min-width: 70px;
+    padding: 8px 10px;
+    font-size: 11px;
+    min-width: 50px;
+    height: 36px;
   }
 
-  .quantity-display {
-    padding: 10px 14px;
-  }
-
-  .quantity-value {
+  .quantity-input {
+    padding: 6px 14px;
     font-size: 18px;
+    height: 36px;
   }
 }
 
@@ -339,21 +427,20 @@ const handleSell = () => {
   }
 
   .product-controls {
-    gap: 8px;
+    gap: 6px;
   }
 
   .control-btn {
-    padding: 8px 12px;
-    font-size: 12px;
-    min-width: 60px;
+    padding: 6px 8px;
+    font-size: 10px;
+    min-width: 40px;
+    height: 32px;
   }
 
-  .quantity-display {
-    padding: 8px 12px;
-  }
-
-  .quantity-value {
+  .quantity-input {
+    padding: 4px 12px;
     font-size: 16px;
+    height: 32px;
   }
 }
 </style> 

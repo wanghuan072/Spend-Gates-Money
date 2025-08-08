@@ -53,7 +53,7 @@
       <section class="game-details-section" aria-labelledby="game-details-title">
         <div class="details-container">
           <h2 id="game-details-title" class="details-title">Game Introduction</h2>
-          <div class="details-content" v-html="game.detailsHtml"></div>
+          <div class="details-content v-html-content" v-html="game.detailsHtml"></div>
         </div>
       </section>
 
@@ -139,6 +139,7 @@ const goBack = () => {
 </script>
 
 <style scoped>
+@import '../styles/v-html-content.css';
 .game-detail-view {
   min-height: 100vh;
   background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
@@ -336,40 +337,6 @@ const goBack = () => {
   text-align: center;
 }
 
-.details-content {
-  color: #4a5568;
-  line-height: 1.6;
-}
-
-.details-content h2 {
-  font-size: 24px;
-  font-weight: 700;
-  color: #2d3748;
-  margin: 24px 0 12px;
-}
-
-.details-content h3 {
-  font-size: 20px;
-  font-weight: 600;
-  color: #2d3748;
-  margin: 20px 0 10px;
-}
-
-.details-content p {
-  font-size: 16px;
-  margin: 0 0 16px;
-}
-
-.details-content ul {
-  margin: 16px 0;
-  padding-left: 20px;
-}
-
-.details-content li {
-  font-size: 16px;
-  margin: 8px 0;
-}
-
 /* 游戏未找到 */
 .game-not-found {
   min-height: 100vh;
@@ -537,19 +504,6 @@ const goBack = () => {
   .details-title {
     font-size: 20px;
     margin-bottom: 16px;
-  }
-
-  .details-content h2 {
-    font-size: 20px;
-  }
-
-  .details-content h3 {
-    font-size: 16px;
-  }
-
-  .details-content p,
-  .details-content li {
-    font-size: 14px;
   }
 
   .not-found-content {

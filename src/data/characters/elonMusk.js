@@ -396,5 +396,34 @@ export const elonMuskData = {
     title: 'Spend Elon Musk Money - Interactive Wealth Simulation Game',
     description: "Experience what it's like to spend Elon Musk's fortune in this interactive simulation game. Buy luxury items,  and see how far $200+ billion can go.",
     keywords: 'elon musk money, wealth simulation, interactive game, billionaire spending, tesla ceo, spacex'
-  }
+  },
+  
+  // 角色详细信息HTML内容
+  detailsHtml: `
+    <h2>Spend Elon Musk Money Overview</h2>
+    <p>The Spend Elon Musk Money is an online simulator game where you can experience the thrill of spending the massive fortune of Elon Musk. It gives you a virtual wallet with $401 billion (Elon Musk's estimated net worth), and you can spend it on various items, projects, and luxuries, just like a billionaire.</p>
+    
+    <p>This game will give you a fun and simple way to imagine what it's like to spend billions of dollars. I mean, most of us had never seen that kind of money in real life, right? But here, you can imagine yourself as a billionaire like Elon Musk. You can make big decisions without worrying about running out of cash.</p>
+    
+    <p>You can buy whatever you want, from private jets and yachts to small stuffs like a pizza or even donate to charity.</p>
+    
+    <p>We hope it gives you a laugh, maybe even teaches you something about money and how much things cost.</p>
+    
+    <h3>How Long Would it Take to Spend Elon Musk's Money?</h3>
+    <p>Elon Musk's current net worth is estimated at $401 billion. To give you an idea, let's break it down into spending habits:</p>
+    
+    <ul>
+      <li><strong>Spending $1 Million a Day:</strong> If you spent $1 million every single day, it would take you over 1,098 years to spend Elon Musk's $401 billion fortune. That's more than ten lifetimes of spending millions daily!</li>
+      <li><strong>Spending $100,000 a Day:</strong> At $100,000 a day, it would take about 10,986 years to spend it all. That's longer than recorded human history!</li>
+      <li><strong>Spending $100,000 an Hour:</strong> Even if you spent $100,000 every single hour, it would take over 458 years to spend Elon Musk's money.</li>
+    </ul>
+    
+    <h3>Your Money vs Elon Musk's Money</h3>
+    <p>Let's compare the average person's income to Elon Musk's massive fortune:</p>
+    
+    <ul>
+      <li>If someone earning $65,000 a year saved every penny they made, with no expenses at all, it would take 6.17 million years to reach Elon Musk's wealth.</li>
+      <li>Even if you won a huge $1 million lottery prize every month, it would still take about 33,417 years to reach $401 billion. That's a very long time.</li>
+    </ul>
+  `
 } 

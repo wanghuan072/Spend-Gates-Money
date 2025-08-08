@@ -396,5 +396,34 @@ export const jeffBezosData = {
       title: 'Spend Jeff Bezos Money - Interactive Wealth Simulation Game',
       description: "Experience what it's like to spend Jeff Bezos' fortune in this interactive simulation game. Buy luxury items,  and see how far $200+ billion can go.",
       keywords: 'jeff bezos money, wealth simulation, interactive game, billionaire spending, amazon ceo'
-    }
+    },
+    
+    // 角色详细信息HTML内容
+    detailsHtml: `
+      <h2>Spend Jeff Bezos Money Overview</h2>
+      <p>The Spend Jeff Bezos Money is an online simulator game where you can experience the thrill of spending the massive fortune of Jeff Bezos. It gives you a virtual wallet with $200 billion (Jeff Bezos' estimated net worth), and you can spend it on various items, projects, and luxuries, just like a billionaire.</p>
+      
+      <p>This game will give you a fun and simple way to imagine what it's like to spend billions of dollars. I mean, most of us had never seen that kind of money in real life, right? But here, you can imagine yourself as a billionaire like Jeff Bezos. You can make big decisions without worrying about running out of cash.</p>
+      
+      <p>You can buy whatever you want, from private jets and yachts to small stuffs like a pizza or even donate to charity.</p>
+      
+      <p>We hope it gives you a laugh, maybe even teaches you something about money and how much things cost.</p>
+      
+      <h3>How Long Would it Take to Spend Jeff Bezos' Money?</h3>
+      <p>Jeff Bezos' current net worth is estimated at $200 billion. To give you an idea, let's break it down into spending habits:</p>
+      
+      <ul>
+        <li><strong>Spending $1 Million a Day:</strong> If you spent $1 million every single day, it would take you over 548 years to spend Jeff Bezos's $200 billion fortune. That's more than five lifetimes of spending millions daily!</li>
+        <li><strong>Spending $100,000 a Day:</strong> At $100,000 a day, it would take about 5,479 years to spend it all. That's longer than many ancient civilizations lasted!</li>
+        <li><strong>Spending $100,000 an Hour:</strong> Even if you spent $100,000 every single hour, it would take over 228 years to spend Jeff Bezos' money.</li>
+      </ul>
+      
+      <h3>Your Money vs Jeff Bezos' Money</h3>
+      <p>Let's compare the average person's income to Jeff Bezos' massive fortune:</p>
+      
+      <ul>
+        <li>If someone earning $65,000 a year saved every penny they made, with no expenses at all, it would take 3.08 million years to reach Jeff Bezos' wealth.</li>
+        <li>Even if you won a huge $1 million lottery prize every month, it would still take about 16,667 years to reach $200 billion. That's a very long time.</li>
+      </ul>
+    `
   } 
